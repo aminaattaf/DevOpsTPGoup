@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  namespace: val
+  labels:
+    app: tp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: database
+  template:
+    metadata:
+      labels:
+        app: database
+    spec:
+      containers:
+      - name: database-container
+        image: dtheam/mysql-db:latest
+        ports:
+        - containerPort: 80
+        env:
+        - name : DB_ROOT_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: db-secrets
+            key: root-pass
