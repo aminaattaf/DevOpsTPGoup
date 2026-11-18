@@ -21,7 +21,7 @@ spec:
         ports:
         - containerPort: 80
         env:
-        - name: DB_ROOT_PASSWORD
+        - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
               name: db-secrets
