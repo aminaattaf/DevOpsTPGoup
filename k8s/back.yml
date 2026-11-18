@@ -17,7 +17,6 @@ spec:
     spec:
       containers:
       - name: back-container
-        image: aminachakira/devopstp:latest
- 
+        image: aminachakira/devopstp:backend
         ports:
         - containerPort: 80
